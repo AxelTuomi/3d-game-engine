@@ -9,11 +9,14 @@ import org.lwjgl.opengl.PixelFormat;
 
 public class displaymanager {
 	
-	private static final int width = 1920;
-	private static final int height = 1080;
+	private static int width = 1920;
+	private static int height = 1080;
 	private static final int FPS_CAP = 120;
 
-	public static void createdisplay() {
+	public static void createdisplay(String resolution) {
+		String[] resolutionlist = resolution.split(" x ");
+		width = Integer.parseInt(resolutionlist[0]);
+		height = Integer.parseInt(resolutionlist[1]);
 		ContextAttribs attribs = new ContextAttribs(3,2);
 		attribs.withForwardCompatible(true);
 		attribs.withProfileCore(true);
